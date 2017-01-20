@@ -1,0 +1,8 @@
+body{
+  background: #3a7bd5 !important; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #3a7bd5 , #3a6073) !important; /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #3a7bd5 , #3a6073) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.list-view{
+  text-align:center;
+}

@@ -1,0 +1,67 @@
+
+.css-login-container {
+    padding-top: 40px;
+    width: 100%;
+    position: absolute;
+    background-size:auto;
+    height: 100%;
+    background-image: url("/img/capa.jpg");
+    margin: 0 0 0 0;
+}
+
+
+.css-login-container a{
+    color: white !important;
+}
+.css-login-container .black-button, .black-button:active, .black-button:visited{
+    background-color: black;
+    border-color: transparent;
+}
+.css-login-container .black-button:hover{
+    border-color: transparent;
+    background-color: grey;
+}
+.css-login-container .img-center{
+    margin: 0 auto;
+}
+
+.css-login-container .form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.css-login-container .form-signin .form-signin-heading,
+.css-login-container .form-signin .checkbox {
+    margin-bottom: 10px;
+}
+
+.css-login-container .form-signin .checkbox {
+    font-weight: normal;
+}
+
+.css-login-container .form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.css-login-container .form-signin .form-control:focus {
+    z-index: 2;
+}
+
+.css-login-container .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.css-login-container .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
