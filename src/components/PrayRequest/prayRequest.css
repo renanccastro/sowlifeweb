@@ -8,8 +8,8 @@
     min-height: 100%;
     background-image: url("/img/bgpray.jpg");
     margin: 0 0 0 0;
-    padding-left: 30%;
-    padding-right: 30%;
+    padding-left: 20%;
+    padding-right: 20%;
 }
 html {
   background: url("/img/bgpray.jpg") no-repeat center center fixed !important;

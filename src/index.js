@@ -6,11 +6,12 @@ import Login from './components/Login/login';
 import PrayRequest from './components/PrayRequest/prayRequest';
 import Chat from './components/chat/chat'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
 import '../node_modules/font-awesome/css/font-awesome.css';
 var $ = require('jquery');
 window.$ = $;
 window.jQuery = $;
-
+require('../node_modules/bootstrap/dist/js/bootstrap.js')
 import {Router,Route,browserHistory,IndexRoute} from 'react-router';
 import auth from './auth'
 window.auth = auth

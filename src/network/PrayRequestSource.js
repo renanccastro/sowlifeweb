@@ -19,6 +19,16 @@ const PrayRequestSource = {
         'token': localStorage.token
       }
     }).then((response) => response.json());
+  },
+  getById(id){
+    return fetch(AppConfig.url + "getpraybyid/"+id, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'token': localStorage.token
+      }
+    }).then((response) => response.json());
   }
 };
 export default PrayRequestSource;

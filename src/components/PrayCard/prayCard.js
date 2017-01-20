@@ -10,10 +10,14 @@ class PrayCard extends Component {
     this.state = {profile:{name:"FB", photo:""}};
   }
 
-  componentDidMount() {
-    ProfileSource.getUserProfileById(this.props.data.Author).then((response)=>{
-      this.setState({profile:response})
-    })
+  componentDidUpdate(prevProps, prevState) {
+    if(JSON.stringify(prevProps) != JSON.stringify(this.props)){
+      console.log("Author:")
+      console.log(this.props.data.Author)
+      ProfileSource.getUserProfileById(this.props.data.Author).then((response)=>{
+        this.setState({profile:response})
+      })
+    }
   }
 
   render() {
@@ -22,7 +26,7 @@ class PrayCard extends Component {
 
         <div className="css-pray-header">
             <div className="css-avatar ">
-              <Avatar name={this.state.profile.name} size="70" round="true" src={
+              <Avatar name={this.state.profile.name} size="70" round={true} src={
                 this.state.profile.photo ?
                 (
                   this.state.profile.photo.search("data:image/jpeg;base64,") == 0
