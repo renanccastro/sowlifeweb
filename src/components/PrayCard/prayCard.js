@@ -1,13 +1,37 @@
 import React, {Component} from 'react';
 import FontAwesome from 'react-fontawesome';
 import Avatar from 'react-avatar';
-import ProfileSource from "../../network/ProfileSource"
-
+import ProfileSource from "../../network/ProfileSource";
+import moment from "moment";
 import './prayCard.css'
 class PrayCard extends Component {
   constructor(props) {
     super(props);
-    this.state = {profile:{name:"FB", photo:""}};
+    if(props.profile){
+      this.state = {profile: props.profile}
+    }else{
+      this.state = {profile:{name:"FB", photo:""}};
+    }
+  }
+  componentDidMount(){
+    if(this.props.data && this.props.data.Author){
+      let key = "p"+this.props.data.Author
+      let savedProfile = localStorage[key];
+      if(savedProfile && savedProfile != "undefined"){
+        let parsedProfile = JSON.parse(savedProfile)
+        this.setState({profile:parsedProfile})
+        ProfileSource.getUserProfileById(this.props.data.Author, parsedProfile.LastModified).then((response)=>{
+          console.log("recebeu response")
+          localStorage[key] = JSON.stringify(response)
+          this.setState({profile:response})
+        })
+      }else{
+        ProfileSource.getUserProfileById(this.props.data.Author).then((response)=>{
+          localStorage[key] = JSON.stringify(response)
+          this.setState({profile:response})
+        })
+      }
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -41,7 +65,10 @@ class PrayCard extends Component {
             </div>
             <div className="css-name">
               <span className="css-name-span">{this.state.profile.name}</span><br/>
-              <span className="css-date-span">Enviado em {this.props.data.CreationDate}</span>
+              <span className="css-date-span">Enviado em {
+                this.props.newPray ? moment().format("DD/MM/YYYY") :
+                moment(this.props.data.CreationDate).format("DD/MM/YYYY")
+              }</span>
             </div>
             <div className="css-icon">
               <img className="css-icon-img" role="presentation" height="40px" src="/img/pray.png"/>
@@ -50,7 +77,7 @@ class PrayCard extends Component {
 
         <div className="css-body-text">
           {
-            this.props.newPray ? <textarea/> :
+            this.props.newPray ? <textarea className="form-control text-area" onChange={this.props.onChange}/> :
               <span>{this.props.data.Description}</span>
           }
         </div>

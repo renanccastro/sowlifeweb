@@ -13,6 +13,8 @@ module.exports = {
       console.log("to aqui!!")
       console.log(res)
       localStorage.token = res.token;
+      localStorage._id = res.profile._id
+      localStorage.profile = JSON.stringify(res.profile);
       if (cb)  cb(true);
     }).catch((err) =>{
       console.log(err);
@@ -43,6 +45,11 @@ module.exports = {
 
   logout(cb) {
     delete localStorage.token;
+    try{
+      window.FB.logout()
+    }catch(e){
+
+    }
     if (cb) cb();
     this.onChange(false);
   },

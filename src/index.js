@@ -4,6 +4,7 @@ import App from './App';
 import Home from './components/Home/home';
 import Login from './components/Login/login';
 import PrayRequest from './components/PrayRequest/prayRequest';
+import NewPrayRequest from './components/PrayRequest/newPrayRequest';
 import Chat from './components/chat/chat'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
@@ -37,7 +38,13 @@ ReactDOM.render(
   (<Router history={browserHistory}>
     <Route path="/" component={App} onEnter={requireAuth}>
       <IndexRoute component={Home} />
+      <Route path="/nova-oracao" component={NewPrayRequest}/>
+
     </Route>
+    {/* <Route path="/"  onEnter={requireAuth}>
+      <Route path="/nova-oracao" component={NewPrayRequest}/>
+    </Route> */}
+
     {/* <Route path="/chat/:id" component={Chat}/> */}
     <Route path="/pray/:id" component={PrayRequest}/>
 

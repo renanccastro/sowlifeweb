@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <Navbar router={this.props.router}/>
+        <Navbar router={this.props.router} history={this.props.history}/>
         {this.props.children}
       </div>
     );

@@ -20,6 +20,18 @@ const PrayRequestSource = {
       }
     }).then((response) => response.json());
   },
+  postNewPray(Description){
+    let pray = {Description};
+    return fetch(AppConfig.url + "addprayrequest", {
+      method: 'POST',
+      body: JSON.stringify(pray),
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'token': localStorage.token
+      }
+    }).then((response) => response.json());
+  },
   getById(id){
     return fetch(AppConfig.url + "getpraybyid/"+id, {
       method: 'GET',
